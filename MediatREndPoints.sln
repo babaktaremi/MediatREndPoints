@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatREndPoints", "ClassLibrary1\MediatREndPoints.csproj", "{64013811-7CE7-422C-BFCA-76F57CDE2836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatREndPoints", "MediatREndPoints\MediatREndPoints.csproj", "{64013811-7CE7-422C-BFCA-76F57CDE2836}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatREndPoints.Example", "MediatREndPoints.Example\MediatREndPoints.Example.csproj", "{BCECAC20-DE13-42AB-BFDF-6975D1763256}"
 EndProject

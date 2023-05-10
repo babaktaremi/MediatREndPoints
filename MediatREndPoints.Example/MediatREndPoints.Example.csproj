@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\MediatREndPoints.csproj" />
+    <ProjectReference Include="..\MediatREndPoints\MediatREndPoints.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.*-*" />
   </ItemGroup>
 
