@@ -4,6 +4,7 @@ using MediatREndPoints.Contracts.Models;
 using MediatREndPoints.ServicePipeline;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,12 +40,12 @@ app.UseMediatREndPointFor<WeatherForecast>();
 
 app.Run();
 
-public record WeatherForecast(DateTime Date):IRequestEndPoint
+public record WeatherForecast(DateTime Date) : IRequestEndPoint
 {
     public EndPointModel SetUpEndPointModel()
     {
         var endPointBuilder = new EndPointBuilder()
-            .WithEndPointAddress("/api/v3/GetWeatherInfo")
+            .WithEndPointAddress("/api/v1/GetWeatherInfo")
             .WithEndPointName("GetWeatherInfo")
             .WithEndPointType(EndPointTypes.Get)
             .WithOpenApiOperation(operation =>
@@ -58,18 +59,18 @@ public record WeatherForecast(DateTime Date):IRequestEndPoint
                 builder.RequireRole("mediatREndpoint");
                 builder.AuthenticationSchemes = new[] { JwtBearerDefaults.AuthenticationScheme };
 
-            });
+            }).WithEndPointFilter(new CustomEndPointFilter());
 
         return endPointBuilder.Build();
     }
 }
 
-public record WeatherForCastResult(string WeatherType, int Temperature,string Message);
+public record WeatherForCastResult(string WeatherType, int Temperature, string Message);
 
 
 public class WeatherForCastHandler : IRequestEndPointHandler<WeatherForecast>
 {
-   private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public WeatherForCastHandler(IHttpContextAccessor httpContextAccessor)
     {
@@ -85,6 +86,33 @@ public class WeatherForCastHandler : IRequestEndPointHandler<WeatherForecast>
 
         await Task.CompletedTask;
 
-        return Results.Ok(temperature < 20 ? new WeatherForCastResult("Cold", temperature,$"Hello {_httpContextAccessor.HttpContext.User.Identity.Name}") : new WeatherForCastResult("Warm", temperature, $"Hello {_httpContextAccessor.HttpContext.User.Identity.Name}"));
+        return Results.Ok(temperature < 20 ? new WeatherForCastResult("Cold", temperature, $"Hello {_httpContextAccessor.HttpContext.User.Identity.Name}") : new WeatherForCastResult("Warm", temperature, $"Hello {_httpContextAccessor.HttpContext.User.Identity.Name}"));
+    }
+}
+
+public class CustomEndPointFilter : IEndpointFilter
+{
+    public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
+    {
+
+        var executionResult = await next(context);
+
+        if (executionResult is null)
+            return Results.Empty;
+
+        if (executionResult is BadRequest<string> badRequest)
+            return Results.BadRequest(new
+            {
+                ErrorMessage=badRequest.Value,
+                ErrorCode=badRequest.StatusCode,
+                IsSuccess=false
+            });
+
+        return Results.Ok(new
+        {
+            IsSuccess=true,
+            StatusCode=StatusCodes.Status200OK,
+            executionResult
+        });
     }
 }

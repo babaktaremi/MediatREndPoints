@@ -96,6 +96,9 @@ public static class ConfigureMediatREndPoints
 
                 if (endPointModel.AuthorizationPolicy != null)
                     builder.RequireAuthorization(endPointModel.AuthorizationPolicy);
+
+                if (endPointModel.EndpointFilter != null)
+                    builder.AddEndpointFilter(endPointModel.EndpointFilter);
             }
         }
         return app;

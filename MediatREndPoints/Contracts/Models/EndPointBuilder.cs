@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.OpenApi.Models;
 
 namespace MediatREndPoints.Contracts.Models;
@@ -13,9 +14,9 @@ public class EndPointBuilder
     private string _endPointGroup;
     private string _endPointAddress;
     private string _endPointTag;
-    private Func<OpenApiOperation,OpenApiOperation>? _openApiOperation;
+    private Func<OpenApiOperation, OpenApiOperation>? _openApiOperation;
     private Action<AuthorizationPolicyBuilder>? _authorizationPolicyBuilder;
-
+    private IEndpointFilter _endpointFilter;
     /// <summary>
     /// Sets up the end point action type
     /// </summary>
@@ -23,7 +24,7 @@ public class EndPointBuilder
     /// <returns></returns>
     public EndPointBuilder WithEndPointType(EndPointTypes endPointType)
     {
-        this._endPointType=endPointType;
+        this._endPointType = endPointType;
         return this;
     }
 
@@ -37,7 +38,7 @@ public class EndPointBuilder
     {
         ArgumentNullException.ThrowIfNull(endPointName);
 
-        this._endPointName=endPointName;
+        this._endPointName = endPointName;
         return this;
     }
 
@@ -49,7 +50,7 @@ public class EndPointBuilder
     public EndPointBuilder WithEndPointGroup(string endPointGroup)
     {
         ArgumentNullException.ThrowIfNull(endPointGroup);
-        this._endPointGroup=endPointGroup;
+        this._endPointGroup = endPointGroup;
         return this;
     }
 
@@ -61,7 +62,7 @@ public class EndPointBuilder
     public EndPointBuilder WithEndPointAddress(string endPointAddress)
     {
         ArgumentNullException.ThrowIfNull(endPointAddress);
-        this._endPointAddress=endPointAddress;
+        this._endPointAddress = endPointAddress;
         return this;
     }
 
@@ -74,7 +75,7 @@ public class EndPointBuilder
     {
         ArgumentNullException.ThrowIfNull(endPointTag);
 
-        this._endPointTag=endPointTag;
+        this._endPointTag = endPointTag;
         return this;
     }
 
@@ -101,8 +102,19 @@ public class EndPointBuilder
     {
         ArgumentNullException.ThrowIfNull(authorizationPolicyBuilder);
 
-        this._authorizationPolicyBuilder=authorizationPolicyBuilder;
+        this._authorizationPolicyBuilder = authorizationPolicyBuilder;
 
+        return this;
+    }
+
+    /// <summary>
+    /// Specifies an EndPoint Filter To Be Used For This EndPoint
+    /// </summary>
+    /// <param name="endpointFilter"></param>
+    /// <returns></returns>
+    public EndPointBuilder WithEndPointFilter(IEndpointFilter endpointFilter)
+    {
+        this._endpointFilter= endpointFilter;
         return this;
     }
 
@@ -119,9 +131,10 @@ public class EndPointBuilder
             , this._endPointName
             , this._endPointGroup
             , this._endPointAddress
-            ,this._endPointTag
-            ,this._openApiOperation
-        , this._authorizationPolicyBuilder);
+            , this._endPointTag
+            , this._openApiOperation
+            , this._authorizationPolicyBuilder
+            , _endpointFilter);
     }
 
 }
