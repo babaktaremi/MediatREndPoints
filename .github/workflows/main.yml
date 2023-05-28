@@ -21,6 +21,7 @@ jobs:
         run: |
              cd MediatREndPoints
              dotnet build MediatREndPoints.csproj --configuration Release
+             ls
 
       - name: Create the package
         run: |
