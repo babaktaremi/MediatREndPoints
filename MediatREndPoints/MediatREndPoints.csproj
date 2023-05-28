@@ -4,6 +4,24 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>Babak Taremi</Authors>
+	  <Version>1.0.0</Version>
+	  <description>Easily Convert your MediatR request models to API endpoints</description>
+	  <summary>
+		  With a set of simple configurations, you can easily convert your MediatR endpoints to API endpoints using ASP NET Core minimal APIs
+	  </summary>
+	  <releaseNotes>
+		  Project is in early stages. Feel free to send pull requests to make it better at https://github.com/babaktaremi/MediatREndPoints/pulls
+	  </releaseNotes>
+	  <RepositoryUrl>https://github.com/babaktaremi/MediatREndPoints</RepositoryUrl>
+	  <Copyright>Babak Taremi</Copyright>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	  <Product>$(AssemblyName)-MediatREndPoints</Product>
+	  <PackageTags>MediatR,Mediator,ASP NET CORE,Minimal API, REPR</PackageTags>
+	  <icon>icon.png</icon>
+	  <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +35,10 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<None Include="..\.template.config\icon.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
 	</ItemGroup>
 
