@@ -2,10 +2,6 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
 
-  <files>
-  <file src="MediatREndPoints\bin\Release\net7.0\MediatREndPoints.dll" target="lib\net7.0" />
-</files>
-
     <id>MediatREndPoints</id>
     <version>1.0.2</version>
     <title>MediatREndPoints. MediatR + Minimal APIs </title>
@@ -37,7 +33,8 @@
   <files>
     <file src=".template.config\icon.png" />
     <file src="README.md" />
-    <file src=".\**" target="content" exclude="**\node_modules\**;**\bin\**;**\obj\**;**\.vs\**;**\.vscode\**;**\ClientApp\dist\**;**\wwwroot\dist\**;content\Directory.Build.*;**\.git\**;**\.github\**;**\CODE_OF_CONDUCT.md;**\LICENSE;**\README.md;**\nuget.exe;**/MediatREndPoints.Example/**" />
+  <file src="MediatREndPoints\bin\Release\net7.0\MediatREndPoints.dll" target="lib\net7.0" />
+    <file src=".\**" target="content" exclude="**\node_modules\**;**\.vs\**;**\.vscode\**;**\ClientApp\dist\**;**\wwwroot\dist\**;content\Directory.Build.*;**\.git\**;**\.github\**;**\CODE_OF_CONDUCT.md;**\LICENSE;**\README.md;**\nuget.exe;**/MediatREndPoints.Example/**" />
   </files>
 
 </package>
