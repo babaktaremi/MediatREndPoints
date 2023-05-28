@@ -3,7 +3,7 @@
   <metadata>
 
     <id>MediatREndPoints</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>MediatREndPoints. MediatR + Minimal APIs</title>
     <authors>BabakTaremi</authors>
     <description>Easily Convert your MediatR request models to API endpoints</description>
@@ -17,15 +17,16 @@
 
     <projectUrl>https://github.com/babaktaremi/MediatREndPoints</projectUrl>
 
+     <dependencies>
+    <dependency id="MediatR" version="12.0.1" />
+    <dependency id="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+  </dependencies>
+
 <repository type="git" url="https://github.com/babaktaremi/MediatREndPoints" branch="master" />
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>MediatR, Mediator ASP NET CORE, Minimal API, REPR</tags>
     <icon>icon.png</icon>
-
-    <packageTypes>
-      <packageType name="Package" />
-    </packageTypes>
 
   </metadata>
 
