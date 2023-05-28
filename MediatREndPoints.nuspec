@@ -2,33 +2,29 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
 
-    <id>Bobby.CleanArcTemplate</id>
-    <version>3.9.1</version>
-    <title>Clean Architecture Solution Template</title>
+    <id>MediatREndPoints</id>
+    <version>1.0.0</version>
+    <title>MediatREndPoints. MediatR + Minimal APIs</title>
     <authors>BabakTaremi</authors>
-    <description>Clean Architecture Solution Template for and .NET 7. With many features available out of the box</description>
+    <description>Easily Convert your MediatR request models to API endpoints</description>
     <summary>
-     Ready to develop template based on clean architecture principles. Supports ASP NET Core Identity integrated with JWE tokens, OTP authentication, stand alone plugin development, CQRS pattern using MediatR library and dynamic permission management system out of the box
+    With a set of simple configurations, you can easily convert your MediatR endpoints to API endpoints using ASP NET Core minimal APIs
     </summary>
      <releaseNotes>
- Solution Structure Got Cleaned Up For Better Project View
-API Models Got Removed Because they were Redundant. (Command And Query Models can be used as API model can be validatable Objects instead) 
-
-UnAuthorized API Response Added.
-Span Enricher added to Serilog and Request ID changed to hex (W3C logging model)
+ Project is in early stages. Feel free to send pull requests to make it better at https://github.com/babaktaremi/MediatREndPoints/pulls
     </releaseNotes>
   
 
-    <projectUrl>https://github.com/babaktaremi/Clean-Architecture-Template</projectUrl>
+    <projectUrl>https://github.com/babaktaremi/MediatREndPoints</projectUrl>
 
-<repository type="git" url="https://github.com/babaktaremi/Clean-Architecture-Template" branch="master" />
+<repository type="git" url="https://github.com/babaktaremi/MediatREndPoints" branch="master" />
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <tags>clean-architecture project template csharp dotnet Identity JWE Identity-OTP CQRS Plugin-based</tags>
+    <tags>MediatR, Mediator ASP NET CORE, Minimal API, REPR</tags>
     <icon>icon.png</icon>
 
     <packageTypes>
-      <packageType name="Template" />
+      <packageType name="Package" />
     </packageTypes>
 
   </metadata>
@@ -36,7 +32,7 @@ Span Enricher added to Serilog and Request ID changed to hex (W3C logging model)
   <files>
     <file src=".template.config\icon.png" />
     <file src="README.md" />
-    <file src=".\**" target="content" exclude="**\node_modules\**;**\bin\**;**\obj\**;**\.vs\**;**\.vscode\**;**\ClientApp\dist\**;**\wwwroot\dist\**;content\Directory.Build.*;**\.git\**;**\.github\**;**\CODE_OF_CONDUCT.md;**\LICENSE;**\README.md;**\nuget.exe" />
+    <file src=".\**" target="content" exclude="**\node_modules\**;**\bin\**;**\obj\**;**\.vs\**;**\.vscode\**;**\ClientApp\dist\**;**\wwwroot\dist\**;content\Directory.Build.*;**\.git\**;**\.github\**;**\CODE_OF_CONDUCT.md;**\LICENSE;**\README.md;**\nuget.exe;**/MediatREndPoints.Example/**" />
   </files>
 
 </package>
