@@ -14,7 +14,7 @@
   "name": "MediatREndPoints",
   "description":  "Easily convert your MediatR Request models to API endpoints using the power of ASP NET Core minimal APIs",
   "identity": "MediatREndPoints",
-  "groupIdentity": "Bobby.CleanArcTemplate.Solution",
+  "groupIdentity": "MediatREndPoints",
   "shortName": "MediatREndPoints",
   "tags": {
     "language": "C#",
