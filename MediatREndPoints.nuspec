@@ -3,7 +3,7 @@
   <metadata>
 
     <id>MediatREndPoints</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>MediatREndPoints. MediatR + Minimal APIs </title>
     <authors>BabakTaremi</authors>
     <description>Easily Convert your MediatR request models to API endpoints </description>
@@ -34,6 +34,7 @@
     <file src=".template.config\icon.png" />
     <file src="README.md" />
   <file src="MediatREndPoints\bin\Release\net7.0\MediatREndPoints.dll" target="lib\net7.0" />
+  <file src="MediatREndPoints\bin\Release\net7.0\MediatREndPoints.xml" target="lib\net7.0" />
     <file src=".\**" target="content" exclude="**\node_modules\**;**\.vs\**;**\.vscode\**;**\ClientApp\dist\**;**\wwwroot\dist\**;content\Directory.Build.*;**\.git\**;**\.github\**;**\CODE_OF_CONDUCT.md;**\LICENSE;**\README.md;**\nuget.exe;**/MediatREndPoints.Example/**" />
   </files>
 

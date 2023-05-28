@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Nullable>enable</Nullable>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>Babak Taremi</Authors>
@@ -27,6 +28,8 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.0.1" />
   </ItemGroup>
+
+
 
   <ItemGroup>
     <Folder Include="Contracts\Models\" />
