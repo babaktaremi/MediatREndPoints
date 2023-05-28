@@ -21,4 +21,4 @@ jobs:
         run: nuget pack MediatREndPoints.nuspec -NoDefaultExcludes
         
       - name: Publish the package
-        run: nuget push *.nupkg --source 'https://api.nuget.org/v3/index.json' -SkipDuplicate
+        run: nuget push *.nupkg -source 'https://api.nuget.org/v3/index.json' -SkipDuplicate
