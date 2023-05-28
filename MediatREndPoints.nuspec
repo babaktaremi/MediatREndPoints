@@ -4,7 +4,7 @@
 
     <id>MediatREndPoints</id>
     <version>1.0.1</version>
-    <title>MediatREndPoints. MediatR + Minimal APIs</title>
+    <title>MediatREndPoints. MediatR + Minimal APIs </title>
     <authors>BabakTaremi</authors>
     <description>Easily Convert your MediatR request models to API endpoints</description>
     <summary>
