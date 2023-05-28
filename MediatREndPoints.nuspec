@@ -6,7 +6,7 @@
     <version>1.0.2</version>
     <title>MediatREndPoints. MediatR + Minimal APIs </title>
     <authors>BabakTaremi</authors>
-    <description>Easily Convert your MediatR request models to API endpoints  </description>
+    <description>Easily Convert your MediatR request models to API endpoints </description>
     <summary>
     With a set of simple configurations, you can easily convert your MediatR endpoints to API endpoints using ASP NET Core minimal APIs
     </summary>
