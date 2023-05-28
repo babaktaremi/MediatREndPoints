@@ -16,9 +16,12 @@ jobs:
         with:
           nuget-version: '6.x'
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+      
+      - name: Build The Project
+        run: dotnet build MediatREndPoints.csproj --configuration Release
 
       - name: Create the package
         run: nuget pack MediatREndPoints.nuspec -NoDefaultExcludes
         
       - name: Publish the package
-        run: nuget push *.nupkg -source 'https://api.nuget.org/v3/index.json' -SkipDuplicate -configuration Release
+        run: nuget push *.nupkg -source 'https://api.nuget.org/v3/index.json' -SkipDuplicate 
