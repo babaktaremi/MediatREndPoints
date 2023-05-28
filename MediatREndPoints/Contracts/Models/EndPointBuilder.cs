@@ -9,7 +9,7 @@ namespace MediatREndPoints.Contracts.Models;
 /// </summary>
 public class EndPointBuilder
 {
-
+    //
     private EndPointTypes _endPointType; 
     private string _endPointName;
     private string _endPointGroup;
